@@ -8,7 +8,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
+
     gtag('config', 'G-DRPZWEBQTX');
   </script>
 <!-- PostHog tracking -->
@@ -16,8 +16,15 @@
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
     posthog.init('phc_fCdVgmcCXfdaDlbQGXLQmhcZbEF1SXlCIzbQOKMB9SU',{api_host:'https://app.posthog.com'});
     posthog.capture('visited');
+    posthog.onFeatureFlags(function() {
+        // feature flags should be available at this point
+        if (posthog.getFeatureFlag('show-mastodon-link')  == 'visible') {
+                document.getElementsByClassName('button-mastodon')[0].style.visibility = 'visible';
+            // do something
+        }
+    })
 </script>
-	
+
   <!-- Page Information
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
@@ -59,13 +66,13 @@
     <div class="row">
       <div class="column" style="margin-top: 10%">
 
-        <!-- 
+        <!--
 
           ## Getting Started with LittleLink
 
           This page has been built with every pre-designed button available in LittleLink by default. You can rearrange and delete as needed.
 
-          You can add your own brand or others brands you may need in the `css/brands.css` file. 
+          You can add your own brand or others brands you may need in the `css/brands.css` file.
 
           You can add custom icons to `images/icons/...`. It is recommended to use a 24x24 .SVG.
 
@@ -89,7 +96,7 @@
         <!--
 
           ## Breaking down <a> attributes:
-          
+
           1.) class="button button-default" | The first "button" here is telling this <a> tag that it should make this element a button and applies the default styling in `css/brands.css`.
           The second portion, button-default, is declaring the specific brand style you would like to apply. Here we're applying the "default" style and color.
           If you want to make this button to use the brand colors for Discord, just change "button-default" to "button-discord". Brands are found in `css/brands.css`. You can always edit & add your own there.
@@ -104,13 +111,13 @@
           5.) role="button" | The button role identifies an element as a button to assistive technology such as screen readers.
 
           ## Breaking down the <img> attributes:
-          
+
           1.) class="icon" | This class is telling the <img> tag that it should use the styling for icons found in `css/brands.css`.
 
           2.) src="images/icons/[icon-name].svg" | This defines the icon you would like to display from the 'images/icons/' folder. For example, you can change this to src="images/icons/discord.svg" to use the Discord icon.
           Add your own 24x24 icons to the "icons" folder to reference them. We recommend providing a SVG.
 
-          3.) alt="" | Since the text at the end of the snippet, "..>[Button Text]</a><br>", explains what the button is, we use "alt=""" to nullify the icon annoucement from the accessibility tree. 
+          3.) alt="" | Since the text at the end of the snippet, "..>[Button Text]</a><br>", explains what the button is, we use "alt=""" to nullify the icon annoucement from the accessibility tree.
           This can improve the experience for assistive technology users by hiding what is essentially duplicated
 
         -->
@@ -123,19 +130,19 @@
 
         <!-- Amazon Music -->
 <!--         <a class="button button-amazon-music" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/amazon-music.svg" alt="">Listen on Amazon Music</a><br>        -->
-        
+
         <!-- Apple App Store -->
 <!--         <a class="button button-appstore" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/apple.svg" alt="">Apple App Store</a><br> -->
 
         <!-- Apple Music -->
 <!--         <a class="button button-apple-music" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/apple-music.svg" alt="">Listen on Apple Music</a><br>             -->
-       
+
         <!-- Apple Music Alternate -->
 <!--         <a class="button button-apple-music-alt" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/apple-music-alt.svg" alt="">Listen on Apple Music</a><br>  -->
 
         <!-- Apple Podcasts -->
 <!--         <a class="button button-apple-podcasts" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/apple-podcasts.svg" alt="">Listen on Apple Podcasts</a><br>  -->
-        
+
         <!-- Apple Podcasts Alternate -->
 <!--         <a class="button button-apple-podcasts-alt" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/apple-podcasts-alt.svg" alt="">Listen on Apple Podcasts</a><br>  -->
 
@@ -146,7 +153,7 @@
 <!--         <a class="button button-behance" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/behance.svg" alt="">Behance</a><br>  -->
 
         <!-- Bluesky -->
-        <a class="button button-bluesky" href="http://bsky.app/profile/tradel.bsky.social" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/bluesky.svg" alt="">Bluesky</a><br> 
+        <a class="button button-bluesky" href="http://bsky.app/profile/tradel.bsky.social" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/bluesky.svg" alt="">Bluesky</a><br>
 
         <!-- Buy Me A Coffee -->
 <!--         <a class="button button-coffee" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/buy-me-a-coffee.svg" alt="">Buy Me A Coffee</a><br> -->
@@ -228,7 +235,7 @@
 
         <!-- Kick Alt -->
 <!--         <a class="button button-kick-alt" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/kick-alt.svg" alt="">Kick</a><br> -->
-        
+
         <!-- Kickstarter -->
 <!--         <a class="button button-kickstarter" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/kickstarter.svg" alt="">Kickstarter</a><br> -->
 
@@ -243,7 +250,7 @@
 
         <!-- Letterboxd -->
 	<!--        <a class="button button-letterboxd" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/letterboxd.svg" alt="">Letterboxd</a><br> -->
-        
+
         <!-- trakt -->
 	<!--        <a class="button button-trakt" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/trakt.svg" alt="">Trakt</a><br> -->
 
@@ -257,14 +264,14 @@
 <!--         <a class="button button-mailchimp" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/mailchimp.svg" alt="">Mailchimp</a><br> -->
 
         <!-- Mastodon -->
-        <a class="button button-mastodon" href="http://mas.to/@toddradel" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/mastodon.svg" alt="">Mastodon</a><br>
+        <a class="button button-mastodon" style="visibility: hidden" href="http://mas.to/@toddradel" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/mastodon.svg" alt="">Mastodon</a><br>
 
         <!-- Medium -->
 <!--         <a class="button button-medium" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/medium.svg" alt="">Medium</a><br> -->
-        
+
         <!-- NGL -->
 <!--         <a class="button button-ngl" href="#" target="_blank" rel="noopener"><img class="icon" src="images/icons/ngl.svg" alt="">NGL</a><br> -->
-        
+
         <!-- Notion -->
 <!--         <a class="button button-notion" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/notion.svg" alt="">Notion</a><br> -->
 
@@ -438,7 +445,7 @@
 
         <!-- Generic Shopping Bag -->
 <!--         <a class="button button-default" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/generic-shopping-bag.svg" alt="">Visit Our Shop</a><br> -->
-                
+
         <!-- Generic Shopping Tag -->
 <!--         <a class="button button-default" href="#" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/generic-shopping-tag.svg" alt="">10% Discount</a><br> -->
 
@@ -449,7 +456,7 @@
         <a class="button button-default" href="http://cv.tradel.me" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/generic-website.svg" alt="">My Resume</a><br>
 
         <br>
-        <!-- 
+        <!--
             Footer:
             This includes a link to privacy.html page which can be setup for your Privacy Policy.
             This also includes a link to the LittleLink repository to make forking LittleLink easier.
